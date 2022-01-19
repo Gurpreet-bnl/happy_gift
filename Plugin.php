@@ -22,7 +22,7 @@ class Plugin extends PluginBase
         return [
             'name'        => 'HappyGift',
             'description' => 'No description provided yet...',
-            'author'      => 'Matat',
+            'author'      => 'ManjinderSingh',
             'icon'        => 'icon-leaf'
         ];
     }
