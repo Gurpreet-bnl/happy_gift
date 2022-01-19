@@ -1,0 +1,23 @@
+<!-- main informative part of the page -->
+<main class="main">
+<div class="container">
+    {{ form_open({'request':'onSubmit', 'class' : 'login-form m-auto'}) }}
+        <h2 class="login-header text-center">ברוכים הבאים למערכת התשלומים של חברת</h2>
+        <div class="login-logo mx-auto">
+            <img src="{{ 'assets/assets/images/logo.svg'|theme }}" alt="Happy Gift">
+        </div>
+        <div class="form-group mb-md-3 pb-md-1">
+            {{ form_label('user_name', 'שם משתמש', {'class':'visually-hidden'}) }}
+            {{ form_text('user_name', null, {'class':'form-control', 'id' : 'user_name', 'placeholder' : 'שם משתמש', 'required' : 'required'}) }}
+        </div>
+        <div class="form-group position-relative mb-md-4">
+            {{ form_label('user_password', 'סיסמה', {'class':'visually-hidden'}) }}
+            {{ form_password('password', {'class':'form-control', 'id' : 'user_password', 'placeholder' : 'סיסמה', 'required' : 'required'}) }}
+            <a href="#" class="link_forgetpass position-absolute top-50 start-0 translate-middle-y">שכחתי סיסמה</a>
+        </div>
+        <div class="btn-wrap pt-md-3">
+            {{ form_submit('התחברות', {'class' : 'btn btn-primary d-block mx-auto'}) }}
+        </div>
+    {{ form_close() }}
+</div>
+</main>

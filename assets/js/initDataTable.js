@@ -1,0 +1,6 @@
+(function ($) {
+
+    $('#pendingorders').DataTable();
+    
+})(jQuery);
+

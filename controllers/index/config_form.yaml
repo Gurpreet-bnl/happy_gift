@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Index
+
+# Model Form Field configuration
+form: $/matat/happygift/models/index/fields.yaml
+
+# Model Class name
+modelClass: Matat\Happygift\Models\Index
+
+# Default redirect location
+defaultRedirect: matat/happygift/index
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: matat/happygift/index/update/:id
+    redirectClose: matat/happygift/index
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: matat/happygift/index
+    redirectClose: matat/happygift/index
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
