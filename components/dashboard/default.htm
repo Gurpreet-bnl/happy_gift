@@ -1,0 +1,19 @@
+<table class="order_responsive_table table">
+    <tbody>
+        {% for val in orders %}
+            <tr>
+                <td>מספר הזמנה {{ val['Customer_Oreder_number'] }}</td>
+                <td>{{ val['merchant_name'] }}</td>
+                <td>{{ val['fullFilmentDate'] }}</td>
+                <td class="text-md-center">
+                    <span class="status-note awaiting">ממתין לאישור ספק</span>
+                    <!-- <span class="status-note not-approved">לא אושר</span> -->
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="box-footer d-md-flex">
+    <div class="data-counter">סה"כ {{ totalOrder }} הזמנות שממתינות לאישור</div>
+    <a href="{{ 'waiting_orders'|page }}" class="link_full_list me-md-auto d-flex align-items-center text-decoration-none fw-bold">לרשימה המלאה <i class="icon-arrow-left-circle"></i></a>
+</div>

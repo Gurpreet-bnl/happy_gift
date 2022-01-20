@@ -3,6 +3,10 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    # id:
+    #     label: ID
+    #     span: auto
+    
+    api_url:
+        label: API URL
+        span: full

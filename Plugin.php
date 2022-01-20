@@ -22,7 +22,7 @@ class Plugin extends PluginBase
         return [
             'name'        => 'HappyGift',
             'description' => 'No description provided yet...',
-            'author'      => 'ManjinderSingh',
+            'author'      => 'Matat',
             'icon'        => 'icon-leaf'
         ];
     }
@@ -59,12 +59,16 @@ class Plugin extends PluginBase
         // return []; // Remove this line to activate
 
         return [
+            'Matat\HappyGift\Components\Dashboard' => 'Dashboard',
             'Matat\HappyGift\Components\PendingOrders' => 'Waiting-Orders',
             'Matat\HappyGift\Components\Authentication' => 'Authentication',
             'Matat\HappyGift\Components\Logout' => 'Logout',
             'Matat\HappyGift\Components\FutureOrders' => 'Future-Orders',
             'Matat\HappyGift\Components\Profile' => 'Profile',
             'Matat\HappyGift\Components\Middleware' => 'Middleware',
+            'Matat\HappyGift\Components\NewOrder' => 'New-Order',
+            'Matat\HappyGift\Components\PlacedOrders' => 'Placed-Order',
+            'Matat\HappyGift\Components\AwaitingConfirmation' => 'Awaiting-Confirmation',
         ];
     }
 

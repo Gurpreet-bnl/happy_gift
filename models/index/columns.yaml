@@ -3,6 +3,11 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
+    # id:
+    #     label: ID
+    #     searchable: true
+        
+    api_url:
+        label: API URL
         searchable: true
+        sortable: false

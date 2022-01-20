@@ -9,7 +9,7 @@ list: $/matat/happygift/models/index/columns.yaml
 modelClass: Matat\Happygift\Models\Index
 
 # List Title
-title: Manage Indices
+title: Manage APIs
 
 # Link URL for each record
 recordUrl: matat/happygift/index/update/:id
@@ -43,5 +43,5 @@ toolbar:
     buttons: list_toolbar
 
     # Search widget configuration
-    search:
-        prompt: backend::lang.list.search_prompt
+    # search:
+    #     prompt: backend::lang.list.search_prompt

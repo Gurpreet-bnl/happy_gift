@@ -12,7 +12,7 @@ class Index extends Model
     /**
      * @var string table associated with the model
      */
-    public $table = 'matat_happygift_indices';
+    public $table = 'matat_happygift_fields';
 
     /**
      * @var array guarded attributes aren't mass assignable

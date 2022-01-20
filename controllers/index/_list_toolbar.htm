@@ -1,8 +1,8 @@
 <div data-control="toolbar">
     <a
         href="<?= Backend::url('matat/happygift/index/create') ?>"
-        class="btn btn-primary oc-icon-plus">
-        <?= e(trans('backend::lang.list.create_button', ['name'=>'Index'])) ?>
+        class="btn btn-primary oc-icon-plus new_api_btn">
+        <?= e(trans('backend::lang.list.create_button', ['name'=>'API'])) ?>
     </a>
 
     <button
@@ -14,8 +14,17 @@
         data-trigger-action="enable"
         data-trigger=".control-list input[type=checkbox]"
         data-trigger-condition="checked"
-        data-request-success="$(this).prop('disabled', 'disabled')"
+        data-request-success="$(this).prop('disabled', 'disabled') && $('.new_api_btn').removeAttr('disabled') && $('.new_api_btn').attr('href', '<?= Backend::url('matat/happygift/index/create') ?>')"
         data-stripe-load-indicator>
         <?= e(trans('backend::lang.list.delete_selected')) ?>
     </button>
 </div>
+<script>
+    var api_count = "<?php echo $api_count; ?>";
+    $(document).ready(function(){
+        if(api_count >= 1) {
+            $('.new_api_btn').attr('disabled', 'disabled');
+            $('.new_api_btn').attr('href', 'javascript:;');
+        }
+    });
+</script>

@@ -1,0 +1,49 @@
+{% partial 'site/error' %}
+<nav class="form-steps-nav">
+    <ul class="d-flex justify-content-between">
+        <li class="completed">
+            <a href="#" class="d-flex align-items-center text-decoration-none flex-column flex-md-row text-center">
+            יוצרים הזמנה חדשה
+            </a>
+        </li>
+        <li class="active">
+            <a href="#" class="d-flex align-items-center text-decoration-none flex-column flex-md-row text-center">
+            ההזמנה  נשמרה וממתינה לאישור
+            </a>
+        </li>
+        <li>
+            <a href="#" class="d-flex align-items-center text-decoration-none flex-column flex-md-row text-center">
+            ההזמנה מאושרת
+            </a>
+        </li>
+    </ul>
+</nav>
+<div class="main-form-wrapper">
+    <h3 class="summary-heading d-flex align-items-center justify-content-center justify-content-md-start">
+        <img src="{{ 'assets/images/icon_1.svg'|theme }}" alt="icon">
+        <span>ההזמנה נשמרה וממתינה לאישור</span>
+    </h3>
+    <div class="order-summary-info text-center text-md-end">
+        בקשה להזמנה מספר {{ orderDetail['CustomerOrder']['number'] }} נקלטה והועברה לטיפול של מחלקת התשלומים.
+        <br>יישלח עדכון במייל ברגע שההזמנה תאושר.
+    </div>
+    <div class="order-summary-box mx-auto mx-md-0 mb-3">
+        <strong class="info-title text-center text-md-end">סיכום ההזמנה:</strong>
+        <dl>
+            <dt>תיאור ההזמנה:</dt>
+            <dd>{{ orderDetail['Meta_order']['description'] }}</dd>
+            <dt>שם הספק:</dt>
+            <dd>{{ orderDetail['OrderMerchant']['name'] }}</dd>
+            <dt>טלפון:</dt>
+            <dd>{{ orderDetail['OrderMerchant']['phone'] }}</dd>
+            <dt>מועד אספקה:</dt>
+            <dd>{{ orderDetail['Payment']['fullFilmentDate'] }}</dd>
+            <dt>סכום לתשלום כולל מע"מ:</dt>
+            <dd>₪{{ orderDetail['Payment']['amount'] }}</dd>
+            <dt>עמלה:</dt>
+            <dd>₪{{ orderDetail['Payment']['fee'] }}</dd>
+            <dt>סך הכל לתשלום:</dt>
+            <dd>₪{{ orderDetail['Payment']['amount'] + orderDetail['Payment']['fee'] }}</dd>
+        </dl>
+    </div>
+</div>

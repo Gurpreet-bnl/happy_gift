@@ -1,0 +1,196 @@
+{% partial 'site/error' %}
+<nav class="form-steps-nav">
+    <ul class="d-flex justify-content-between">
+        <li class="active">
+            <a href="#" class="d-flex align-items-center text-decoration-none flex-column flex-md-row text-center">
+                יוצרים הזמנה חדשה
+            </a>
+        </li>
+        <li>
+            <a href="#" class="d-flex align-items-center text-decoration-none flex-column flex-md-row text-center">
+            ההזמנה  נשמרה וממתינה לאישור
+            </a>
+        </li>
+        <li>
+            <a href="#" class="d-flex align-items-center text-decoration-none flex-column flex-md-row text-center">
+            ההזמנה מאושרת
+            </a>
+        </li>
+    </ul>
+</nav>
+<div class="main-form-wrapper">
+    <!-- <form action="#" class="custom-form"> -->
+    {{ form_open({'request':'onSubmitCeateOrder', 'class' : 'custom-form', 'files' : true}) }}
+        <div class="row g-xl-5">
+            <div class="col-lg-6">
+                <div class="form-box partialFormSec">
+                    <div class="row">
+                        <div class="form-group col-fill provideCompanyType">
+                            <label for="provider_dealer" class="form-label">ח.פ / עוסק מורשה / עוסק פטור  <span class="addNewFormVendor">+</span></label>
+                            <div class="input-group">
+                                <div class="select-wrap">
+                                    <select class="form-select" id="provider_companyGovType" class="provider_companyGovType" name="merchant[companyGovType]">
+                                        <option selected>בחר מבין האפשרויות</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <input type="text" class="form-control provider_dealer" id="provider_dealer" name="merchant[companyGovId]" placeholder="הקלד מספר">
+                            </div>
+                        </div>
+                        <div class="form-group col-fill">
+                            <label for="provider_name" class="form-label">יצירת ספק חדש</label>
+                            <input type="text" class="form-control provider_name" id="provider_name" name="merchant[name]" placeholder="הקלד את שם הספק">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="provider_contact" class="form-label">איש קשר</label>
+                            <input type="text" class="form-control provider_contact" id="provider_contact" name="merchant[contactPerson]">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="provider_phone" class="form-label">מספר טלפון</label>
+                            <input type="tel" class="form-control provider_phone" id="provider_phone" name="merchant[phone]">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="provider_email" class="form-label">כתובת דוא"ל</label>
+                            <input type="email" class="form-control provider_email" id="provider_email" name="merchant[Email]">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="provider_phone_book" class="form-label">טלפון הנהלת חשבונות</label>
+                            <input type="text" class="form-control provider_phone_book" id="provider_phone_book" name="merchant[officephone]">
+                        </div>
+                        <div class="form-group col-fill">
+                            <label for="provider_website" class="form-label">אתר אינטרנט</label>
+                            <input type="text" class="form-control provider_website" id="provider_website" name="merchant[website]">
+                        </div>
+                    </div>
+                </div>
+                <div class="appendPartialForm"></div>
+                <div class="form-box order-detail-wrap">
+                    <div class="row">
+                        <div class="form-group col-fill">
+                            <label for="order_name" class="form-label">שם ההזמנה</label>
+                            <input type="text" class="form-control" id="order_name" name="meta_order[name]" placeholder="הקלד את שם הספק">
+                        </div>
+                        <div class="form-group col-fill">
+                            <label for="quote_include" class="form-label">מה כוללת הצעת המחיר</label>
+                            <input type="text" class="form-control" id="quote_include" name="meta_order[description]">
+                            <div class="upload_file">
+                                <label class="position-relative">
+                                    <input type="file" class="position-absolute ignore_custom" name="meta_order[fileRef]">
+                                    <i class="icon-add-file position-absolute top-50 end-0 translate-middle-y"></i>
+                                    <span class="file-label">לחץ להוספת קובץ הצעת מחיר</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-fill">
+                            <label for="order_category" class="form-label">קטגוריה</label>
+                            <div class="position-relative">
+                                <input type="text" class="form-control" id="order_category" name="meta_order[categoryId]" placeholder="חיפוש קטגוריה לפי שם">
+                                <i class="icon-search position-absolute top-50 start-0 translate-middle-y"></i>
+                            </div>
+                            <button class="btn_add_category" type="button">צור קטגוריה חדשה +</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-box">
+                    <div class="row">
+                        <div class="form-group col-7 col-md-6">
+                            <label for="vat_amount" class="form-label">סכום לתשלום לספק כולל מע"מ</label>
+                            <input type="text" class="form-control" id="vat_amount" name="payment[amount]">
+                        </div>
+                        <div class="form-group col-5 col-md-6">
+                            <div class="commission-amount-box text-center">
+                                <span class="amount-label">סכום עמלה:</span>
+                                <div class="commission-amount" dir="ltr">
+                                2000 x 0.05 = 100
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="provider_website" class="form-label">מועד קבלת השירות</label>
+                            <div class="row">
+                                <div class="col-4">
+                                    <input type="text" class="form-control text-center" name="payment[receipt_service_year]" placeholder="YYYY">
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" class="form-control text-center" name="payment[receipt_service_month]" placeholder="MM">
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" class="form-control text-center" name="payment[receipt_service_date]" placeholder="DD">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 payment-checkbox">
+                            <div class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox" name="payment[immediateRequest]">
+                                    <span class="fake-input"></span>
+                                    <span class="input-label">מעוניין לבצע תשלום מיידי</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-fill">
+                            <label for="vendor_update" class="form-label">האם הספק עודכן לגבי מי משלם עבור השירות?</label>
+                            <div class="d-flex flex-wrap">
+                                <div class="custom-radio">
+                                <label>
+                                    <input type="radio" name="payment[knowledgeOfService]" id="vendor_update">
+                                    <span class="fake-input"></span>
+                                    <span class="label-text">כן</span>
+                                </label>
+                                </div>
+                                <div class="custom-radio">
+                                <label>
+                                    <input type="radio" name="payment[knowledgeOfService]" id="vendor_update2" checked>
+                                    <span class="fake-input"></span>
+                                    <span class="label-text">לא</span>
+                                </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-box">
+                    <div class="row">
+                        <div class="form-group col-fill">
+                            <label for="order_type" class="form-label">בחר אחת מהאפשרויות:</label>
+                            <div class="custom-radio order_type">
+                                <label>
+                                    <input type="radio" name="customerOrder[type]" id="order_type" checked>
+                                    <span class="fake-input"></span>
+                                    <span class="label-text">הזמנת רכש</span>
+                                </label>
+                            </div>
+                            <div class="custom-radio order_type">
+                                <label>
+                                    <input type="radio" name="customerOrder[type]" id="order_type2">
+                                    <span class="fake-input"></span>
+                                    <span class="label-text">הזמנת מסגרת</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="order_number" class="form-label">מספר הזמנה</label>
+                            <input type="text" class="form-control" id="order_number" name="customerOrder[number]">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="order_file" class="form-label">יש לצרף קובץ הזמנת רכש</label>
+                            <input type="file" class="form-control" id="order_file" name="customerOrder[fileRef]" data-jcf='{"buttonText": "", "placeholderText": "הוסף קובץ הזמנת רכש"}'>
+                        </div>
+                        <div class="form-group col-fill">
+                            <label for="email_sending_request" class="form-label">כתובת דוא"ל לשליחת בקשה למחלקת הרכש</label>
+                            <input type="email" class="form-control" id="email_sending_request" name="customerOrder[email]">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-btn-wrap text-center text-md-start">
+                    <button class="btn btn-primary" type="submit">שמירה ואישור</button>
+                </div>
+            </div>
+        </div>
+    {{ form_close() }}
+    <!-- </form> -->
+</div>

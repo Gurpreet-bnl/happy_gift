@@ -11,14 +11,11 @@ class CreateRequestHandlersTable extends Migration
 {
     public function up()
     {
-        Schema::create('matat_happygift_request_handlers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
+        //
     }
 
     public function down()
     {
-        Schema::dropIfExists('matat_happygift_request_handlers');
+        //
     }
 }

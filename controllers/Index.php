@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use Db;
 
 /**
  * Index Backend Controller
@@ -28,6 +29,10 @@ class Index extends Controller
      */
     public function __construct()
     {
+        $api_count = Db::table('matat_happygift_fields')->count();
+
+        $this->vars['api_count'] = $api_count;
+
         parent::__construct();
 
         BackendMenu::setContext('Matat.Happygift', 'happygift', 'index');

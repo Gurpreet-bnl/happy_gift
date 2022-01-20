@@ -3,6 +3,7 @@
 use Cms\Classes\ComponentBase;
 use Matat\HappyGift\Models\RequestHandler;
 use Session;
+use Matat\HappyGift\Models\CustomerData;
 
 /**
  * PendingOrders Component
@@ -29,6 +30,7 @@ class PendingOrders extends ComponentBase
         $userArr = Session::get('User');
         $data = array();
         $result = '';
+        $customerDetail = array();
         if(!empty($userArr['userUUID']) && !empty($userArr['customerUUID'])){
             $token = $userArr['token'];
             $data['customerUUID'] = $userArr['customerUUID'];
@@ -38,10 +40,11 @@ class PendingOrders extends ComponentBase
             $getWaitingOrder = RequestHandler::makeRequest('post', $action, $data, $token);
             $jsonData = json_decode($getWaitingOrder, true);
             if(@$jsonData['data']['status'] == 200 && $jsonData['code'] == 'Success') {
-                $result = array_merge($jsonData['data']['results'], $jsonData['data']['results'], $jsonData['data']['results']);
-                $result = array_merge($result, $result);
+                $result = $jsonData['data']['results'];
+                $customerDetail = CustomerData::getCustomerDetail($data, $token);
             }
         }
         $this->page['orders'] = $result;
+        $this->page['customerDetail'] = $customerDetail;
     }
 }

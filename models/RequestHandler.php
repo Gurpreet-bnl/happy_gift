@@ -2,6 +2,7 @@
 
 use Model;
 use Http;
+use Db;
 
 /**
  * RequestHandler Model
@@ -13,7 +14,8 @@ class RequestHandler extends Model
     /**
      * @var string table associated with the model
      */
-    public static $api_url = 'https://omer.pai-pay.com/wp-json/';
+
+    // public static $api_url = 'https://omer.pai-pay.com/wp-json/';
 
     /**
      * @var array guarded attributes aren't mass assignable
@@ -72,8 +74,9 @@ class RequestHandler extends Model
     public $attachMany = [];
 
     public static function makeRequest ($_method, $_action, $_postData = array(), $_token = '') {
+        $api_url = Db::table('matat_happygift_fields')->first()->api_url;
         if($_method == 'post') {
-            $response = Http::post(self::$api_url.$_action, function($http) use ($_postData, $_token){
+            $response = Http::post($api_url.$_action, function($http) use ($_postData, $_token){
                 if(!empty($_token)) {
                     $http->header(['Content-Type', 'Authorization' => 'Bearer '.$_token]);
                 } else {

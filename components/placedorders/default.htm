@@ -1,6 +1,6 @@
 <table id="initDatatable" class="table table-striped orders-responsive-table text-center">
     <thead>
-    <tr>
+      <tr>
         <th>מס' הזמנה</th>
         <th class="expandable_sm">תאריך</th>
         <th class="expandable_sm">מס' הזמנת רכש</th>
@@ -10,8 +10,9 @@
         <th>מועד אספקה</th>
         <th class="expandable_sm expandable_lg">סכום לא כולל עמלה</th>
         <th class="expandable_sm expandable_lg">עמלה</th>
+        <th>בוצע תשלום</th>
         <th class="d-none">&nbsp;</th>
-    </tr>
+      </tr>
     </thead>
     <tbody>
         {% if(orders) %}
@@ -22,16 +23,17 @@
                 <td class="expandable_sm" data-title="מס' הזמנת רכש"><a href="#">{{ val['Customer_Oreder_number'] }}</a></td>
                 <td class="expandable_sm" data-title="שם המזמין">{{ customerDetail['customerData']['name'] }}</td>
                 <td data-title="שם הספק">{{ val['merchant_name'] }}</td>
-                <td class="expandable_sm expandable_lg" data-title="הצעת המחיר"><a href="{{ val['priceOfferFile'] }}" target="_blank">לחץ לצפייה</a></td>
+                <td class="expandable_sm expandable_lg" data-title="הצעת המחיר"><a href="{{ val['priceOfferFile'] }}">לחץ לצפייה</a></td>
                 <td data-title="מועד אספקה">{{ val['fullFilmentDate'] }}</td>
                 <td class="expandable_sm expandable_lg" data-title="סכום לא כולל עמלה">₪{{ val['amount'] }}</td>
                 <td class="expandable_sm expandable_lg" data-title="עמלה">₪{{ val['fee'] }}</td>
+                <td data-title="בוצע תשלום"><strong>כן</strong></td>
                 <td class="d-xl-none link_wrap">
-                    <a href="#" class="data_exap_link">
-                        <span class="open_text">לפרטים נוספים</span>
-                        <span class="close_text">סגירה</span>
-                        <i class="icon-arrow-down"></i>
-                    </a>
+                <a href="#" class="data_exap_link">
+                    <span class="open_text">לפרטים נוספים</span>
+                    <span class="close_text">סגירה</span>
+                    <i class="icon-arrow-down"></i>
+                </a>
                 </td>
             </tr>
         {% endfor %}
