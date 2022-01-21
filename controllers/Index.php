@@ -29,6 +29,7 @@ class Index extends Controller
      */
     public function __construct()
     {
+        $stest = 'test';
         $api_count = Db::table('matat_happygift_fields')->count();
 
         $this->vars['api_count'] = $api_count;
