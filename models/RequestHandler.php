@@ -3,6 +3,7 @@
 use Model;
 use Http;
 use Db;
+use Schema;
 
 /**
  * RequestHandler Model
@@ -74,7 +75,10 @@ class RequestHandler extends Model
     public $attachMany = [];
 
     public static function makeRequest ($_method, $_action, $_postData = array(), $_token = '') {
-        $api_url = Db::table('matat_happygift_fields')->first()->api_url;
+        $api_url = 'https://omer.pai-pay.com/wp-json/';
+        if(Schema::hasTable('matat_happygift_fields')) {
+            $api_url = Db::table('matat_happygift_fields')->first()->api_url;
+        }
         if($_method == 'post') {
             $response = Http::post($api_url.$_action, function($http) use ($_postData, $_token){
                 if(!empty($_token)) {

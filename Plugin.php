@@ -6,6 +6,7 @@ use Matat\Happygift\Classes\Controller;
 use Cms\Classes\Theme;
 use Cms\Classes\Controller as CmsController;
 use System\Classes\PluginBase;
+use Schema;
 
 /**
  * HappyGift Plugin Information File
@@ -96,7 +97,9 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
-        // return []; // Remove this line to activate
+        if(!Schema::hasTable('matat_happygift_fields')) {
+            return []; // Remove this line to activate
+        }
 
         return [
             'happygift' => [

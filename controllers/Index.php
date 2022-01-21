@@ -3,6 +3,7 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 use Db;
+use Schema;
 
 /**
  * Index Backend Controller
@@ -29,9 +30,10 @@ class Index extends Controller
      */
     public function __construct()
     {
-        $stest = 'test';
-        $api_count = Db::table('matat_happygift_fields')->count();
-
+        $api_count = 1;
+        if(Schema::hasTable('matat_happygift_fields')) {
+            $api_count = Db::table('matat_happygift_fields')->count();
+        }
         $this->vars['api_count'] = $api_count;
 
         parent::__construct();
