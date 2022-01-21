@@ -25,7 +25,8 @@ class Middleware extends ComponentBase
 
     public function onRun() {
         if( Session::has('User') ) {
-            
+            $userArr = Session::get('User');
+            $this->page['displayName'] = $userArr['displayName'];
         } else {
             return Redirect::to('login');
         }
