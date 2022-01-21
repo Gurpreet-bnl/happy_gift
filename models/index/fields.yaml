@@ -2,11 +2,10 @@
 #  Form Field Definitions
 # ===================================
 
-fields:
-    # id:
-    #     label: ID
-    #     span: auto
-    
-    api_url:
-        label: API URL
-        span: full
+tabs:
+    fields:
+
+        api_url:
+            label: https://example.com/wp-json/
+            tab: API URL
+            span: full
