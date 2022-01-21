@@ -98,7 +98,7 @@ class Plugin extends PluginBase
     public function registerNavigation()
     {
         if(!Schema::hasTable('matat_happygift_fields')) {
-            return []; // Remove this line to activate
+            return [];
         }
 
         return [
