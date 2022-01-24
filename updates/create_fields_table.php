@@ -11,7 +11,7 @@ class CreateFieldsTable extends Migration
 {
     public function up()
     {
-        Schema::create('matat_happygift_fields', function (Blueprint $table) {
+        Schema::create('hg_settings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('api_url')->nullable();
             $table->timestamps();
@@ -20,6 +20,6 @@ class CreateFieldsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('matat_happygift_fields');
+        Schema::dropIfExists('hg_settings');
     }
 }
