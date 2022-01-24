@@ -13,7 +13,8 @@ class CreateFieldsTable extends Migration
     {
         Schema::create('hg_settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('api_url')->nullable();
+            $table->string('key')->nullable();
+            $table->string('value')->nullable();
             $table->timestamps();
         });
     }
